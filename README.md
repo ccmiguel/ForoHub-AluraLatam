@@ -1,39 +1,50 @@
 
-# 🌐 **[ForoHub - AluraLatam]**  
+# 🌐 ForoHub - Plataforma de Foros Educativos  
 
-📚 **[ForoHub - AluraLatam]** es una plataforma basada en Spring Boot diseñada para crear, gestionar y participar en foros educativos. Este proyecto implementa un sistema eficiente para usuarios, temas, cursos y respuestas.  
+**ForoHub** es una plataforma desarrollada con Spring Boot que permite la creación y gestión de foros educativos. Diseñado con un enfoque en eficiencia, seguridad y facilidad de uso, ForoHub facilita la interacción entre usuarios, temas, cursos y respuestas.  
 
 ---
 
-## 📑 **Tabla de Contenidos**  
+## 📑 Tabla de Contenidos  
 1. 🛠️ [Características](#características)  
 2. 🏗️ [Arquitectura del Sistema](#arquitectura-del-sistema)  
 3. ⚙️ [Tecnologías Utilizadas](#tecnologías-utilizadas)  
 4. 🚀 [Configuración e Instalación](#configuración-e-instalación)  
 5. 🔗 [Endpoints Principales](#endpoints-principales)  
-6. 📈 [Avance del Proyecto](#avance-del-proyecto)  
-7. 📜 [Licencia](#licencia)  
+6. 📂 [Estructura del Proyecto](#estructura-del-proyecto)  
+7. 📈 [Avance del Proyecto](#avance-del-proyecto)  
+8. 🤝 [Contribución](#contribución)  
+9. 📜 [Licencia](#licencia)  
 
 ---
 
-## 🛠️ **Características**  
-- 🔐 **Gestión de Usuarios**: Autenticación y autorización con JWT.  
-- 📝 **Gestión de Foros**: Creación y visualización de temas y respuestas.  
-- 📘 **Gestión de Cursos**: Asociación de cursos con temas y categorías.  
-- 📄 **Documentación de la API**: Generada con Swagger.  
-- 🛡️ **Seguridad**: Implementación de roles y permisos con Spring Security.  
+## 🛠️ Características  
+- 🔐 **Gestión de Usuarios**:  
+  Sistema robusto de autenticación y autorización mediante tokens JWT, con soporte para múltiples roles (administrador, usuario).  
+
+- 📝 **Gestión de Foros**:  
+  Posibilidad de crear, visualizar y responder a temas en diferentes categorías.  
+
+- 📘 **Gestión de Cursos**:  
+  Asociación de cursos con temas y categorías para facilitar la organización temática.  
+
+- 📄 **Documentación de la API**:  
+  Explora y prueba los endpoints de la API utilizando Swagger (SpringDoc OpenAPI).  
+
+- 🛡️ **Seguridad**:  
+  Control de acceso basado en roles, garantizando que cada usuario acceda solo a los recursos autorizados.  
 
 ---
 
-## 🏗️ **Arquitectura del Sistema**  
-El proyecto está diseñado con una arquitectura por capas:  
+## 🏗️ Arquitectura del Sistema  
+El proyecto está diseñado con una arquitectura por capas para facilitar su mantenimiento y escalabilidad:  
 - 🖥️ **Capa API**: Contiene los controladores REST y configuraciones de seguridad.  
 - ⚙️ **Capa de Dominio**: Define las entidades, servicios y repositorios.  
-- 🗄️ **Capa de Infraestructura**: Incluye la configuración de base de datos y manejo de errores.  
+- 🗄️ **Capa de Infraestructura**: Incluye la configuración de base de datos, manejo de errores y seguridad.  
 
 ---
 
-## ⚙️ **Tecnologías Utilizadas**  
+## ⚙️ Tecnologías Utilizadas  
 - 🧑‍💻 **Lenguaje**: Java 21  
 - 🌱 **Framework Principal**: Spring Boot  
 - 🗃️ **Base de Datos**: MySQL  
@@ -42,12 +53,14 @@ El proyecto está diseñado con una arquitectura por capas:
 
 ---
 
-## 🚀 **Configuración e Instalación**  
+## 🚀 Configuración e Instalación  
 
 ### **Prerrequisitos**  
-- 🛠️ [Software requerido: JDK 21, Maven, MySQL].  
+- JDK 21  
+- Maven  
+- MySQL  
 
-### **Pasos**  
+### **Pasos de Instalación**  
 1. **Clonar el repositorio**:  
    ```bash  
    git clone https://github.com/usuario/tu-proyecto.git  
@@ -70,39 +83,84 @@ El proyecto está diseñado con una arquitectura por capas:
    ```  
 
 4. **Acceder a la documentación de la API**:  
-   🌐 [URL de la documentación, por ejemplo: `http://localhost:8080/swagger-ui.html`]  
+   🌐 [Swagger UI](http://localhost:8080/swagger-ui.html)  
 
 ---
 
-## 🔗 **Endpoints Principales**  
+## 🔗 Endpoints Principales  
 
-| **Método** | **Endpoint**       | **Descripción**                           |  
-|------------|--------------------|-------------------------------------------|  
-| 📨 POST    | `/auth/login`      | Autenticar un usuario.                    |  
-| 📂 GET     | `/users`           | Obtener lista de usuarios.                |  
-| 📋 GET     | `/items`           | Listar todos los ítems.                   |  
-| ➕ POST    | `/items`           | Crear un nuevo ítem.                      |  
+| **Método** | **Endpoint**       | **Descripción**                          | **Ejemplo de Cuerpo (JSON)**            |  
+|------------|--------------------|------------------------------------------|----------------------------------------|  
+| POST       | `/auth/login`      | Autenticar un usuario.                   | `{ "username": "admin", "password": "1234" }` |  
+| GET        | `/users`           | Obtener lista de usuarios.               | -                                      |  
+| GET        | `/topics`          | Listar todos los temas de foros.         | -                                      |  
+| POST       | `/topics`          | Crear un nuevo tema en un foro.          | `{ "title": "Nuevo Tema", "message": "Texto" }` |  
 
 ---
 
-## 🤝 **Contribución**  
+## 📂 Estructura del Proyecto  
+
+```plaintext
+forohub/
+├── src/
+│   ├── main/
+│   │   ├── java/
+│   │   │   └── com.desafio.forohub/
+│   │   │       ├── controller/
+│   │   │       ├── domain/
+│   │   │       │   ├── curso/
+│   │   │       │   ├── respuesta/
+│   │   │       │   ├── topico/
+│   │   │       │   └── usuario/
+│   │   │       ├── infra/
+│   │   │       │   ├── errors/
+│   │   │       │   ├── security/
+│   │   │       │   ├── service/
+│   │   │       │   └── springdoc/
+│   │   │       └── ForohubApplication.java
+│   ├── resources/
+│   │   ├── db.migration/
+│   │   ├── static/
+│   │   ├── templates/
+│   │   └── application.properties
+├── test/
+```
+
+---
+
+
+## 📈 Avance del Proyecto  
+
+### Funcionalidades Completadas  
+- [x] Autenticación de usuarios.  
+- [x] Creación de temas en foros.  
+- [x] Asociación de cursos con temas.  
+
+### Próximas Funcionalidades  
+- [ ] Sistema de notificaciones.  
+- [ ] Estadísticas de uso.  
+
+---
+
+## 🤝 Contribución  
 ¡Las contribuciones son bienvenidas! Para contribuir:  
-1. 🔄 Haz un fork del proyecto.  
-2. ➕ Crea una nueva rama:  
+1. Haz un fork del proyecto.  
+2. Crea una nueva rama:  
    ```bash  
    git checkout -b feature/nueva-funcionalidad  
    ```  
-3. 🛠️ Realiza tus cambios y haz un commit:  
+3. Realiza tus cambios y haz un commit:  
    ```bash  
    git commit -m "Añadida nueva funcionalidad"  
    ```  
-4. 📤 Sube tus cambios:  
+4. Sube tus cambios:  
    ```bash  
    git push origin feature/nueva-funcionalidad  
    ```  
-5. 📬 Abre un pull request en el repositorio principal.  
+5. Abre un pull request en el repositorio principal.  
 
 ---
 
-## 📜 **Licencia**  
+## 📜 Licencia  
 Este proyecto está bajo la Licencia MIT. Consulta el archivo `LICENSE` para más detalles.  
+
