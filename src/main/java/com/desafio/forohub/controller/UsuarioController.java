@@ -25,7 +25,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/usuarios")
-@SecurityRequirement(name = "bearer-key")
+//@SecurityRequirement(name = "bearer-key")
 @Tag(name = "Usuario", description = "Crear topicos y publica respuestas")
 public class UsuarioController {
 
